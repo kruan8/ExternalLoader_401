@@ -1,0 +1,17 @@
+Flash25.c:53:6:Flash25_Init	32	static
+Flash25.c:79:17:Flash25_GetStatus	16	static
+Flash25.c:92:6:Flash25_ReadData	32	static
+Flash25.c:106:6:Flash25_WriteData	32	static
+Flash25.c:138:6:Flash25_SectorErase	16	static
+Flash25.c:151:6:Flash25_Block32Erase	16	static
+Flash25.c:164:6:Flash25_Block64Erase	16	static
+Flash25.c:177:6:Flash25_ChipErase	8	static
+Flash25.c:188:6:Flash25_WriteEnable	8	static
+Flash25.c:195:6:FlashF25_WriteDisable	8	static
+Flash25.c:202:10:FlashF25_GetID	16	static
+Flash25.c:217:13:FlashF25_GetTypeString	4	static
+Flash25.c:222:6:Flash25_IsPresent	24	static
+Flash25.c:243:6:Flash25_SetDeepPower	8	static
+Flash25.c:250:10:Flash25_GetSectors	4	static
+Flash25.c:255:10:Flash25_GetPages	4	static
+Flash25.c:260:6:Flash25_Send24bit	16	static
