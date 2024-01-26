@@ -80,10 +80,17 @@ int Init (void)
 
   __set_PRIMASK(0); //enable interrupts
 
-  spi_Init(g_pSpi1, PA5, PA7, PB4);
+  spi_Init(g_pSpi1, PA5, PA7, PA6);
 
 	LOC_LedOn();
   bool bRes = Flash25_Init(g_pSpi1, FLASH_CS, 50000000);
+  if (bRes == false)
+  {
+    spi_DeInit(g_pSpi1, PA5, PA7, PA6);
+    spi_Init(g_pSpi1, PA5, PA7, PB4);
+    bRes = Flash25_Init(g_pSpi1, FLASH_CS, 50000000);
+  }
+
 	LOC_LedOff();
 
   __set_PRIMASK(1); //disable interrupts

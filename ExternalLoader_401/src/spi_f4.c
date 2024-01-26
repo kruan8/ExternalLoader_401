@@ -87,6 +87,36 @@ void spi_Init(spi_drv_t* pDrv, gpio_pins_e eClkPin, gpio_pins_e eMosiPin, gpio_p
   LL_SPI_Enable(pDrv->pHW->reg);
 }
 
+void spi_DeInit(spi_drv_t* pDrv, gpio_pins_e eClkPin, gpio_pins_e eMosiPin, gpio_pins_e eMisoPin)
+{
+  LL_SPI_Disable(pDrv->pHW->reg);
+  if (pDrv->pHW->reg == SPI1)
+  {
+    LL_APB2_GRP1_DisableClock(LL_APB2_GRP1_PERIPH_SPI1);
+  }
+
+  if (pDrv->pHW->reg == SPI2)
+  {
+    LL_APB1_GRP1_DisableClock(LL_APB1_GRP1_PERIPH_SPI2);
+  }
+  else if (pDrv->pHW->reg == SPI3)
+  {
+    LL_APB1_GRP1_DisableClock(LL_APB1_GRP1_PERIPH_SPI3);
+  }
+
+  GPIO_ConfigPin(eClkPin, mode_analog, outtype_pushpull, pushpull_no, speed_low);
+  GPIO_SetAFpin(eClkPin, LL_GPIO_AF_0);
+
+  GPIO_ConfigPin(eMosiPin, mode_analog, outtype_pushpull, pushpull_no, speed_low);
+  GPIO_SetAFpin(eMosiPin, LL_GPIO_AF_0);
+
+  if (eMisoPin != P_UNUSED)
+  {
+    GPIO_ConfigPin(eMisoPin, mode_analog, outtype_pushpull, pushpull_no, speed_low);
+    GPIO_SetAFpin(eMisoPin, LL_GPIO_AF_0);
+  }
+}
+
 void spi_TransactionBegin(spi_drv_t* pDrv, gpio_pins_e eChipSelect, spi_br_e ePrescaler)
 {
   spi_SetPrescaler(pDrv, ePrescaler);

@@ -1,9 +1,0 @@
-Loader_Src.c:39:6:LOC_LedOn	4	static
-Loader_Src.c:46:6:LOC_LedOff	4	static
-Loader_Src.c:63:5:Init	24	static
-Loader_Src.c:102:5:Read	32	static
-Loader_Src.c:122:5:Write	32	static
-Loader_Src.c:139:5:MassErase	16	static
-Loader_Src.c:159:5:SectorErase	24	static
-Loader_Src.c:191:10:CheckSum	40	static
-Loader_Src.c:250:10:Verify	72	static

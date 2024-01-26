@@ -91,6 +91,8 @@ void spi_SetMode(spi_drv_t* pDrv, spi_mode_e eMode);
 void spi_WaitForNoBusy(spi_drv_t* pDrv);
 void spi_SetDirection(spi_drv_t* pDrv, spi_direction_e bDirection);
 
+void spi_DeInit(spi_drv_t* pDrv, gpio_pins_e eClkPin, gpio_pins_e eMosiPin, gpio_pins_e eMisoPin);
+
 extern spi_drv_t _spi1_drv;
 #define spi1 (&_spi1_drv)
 
